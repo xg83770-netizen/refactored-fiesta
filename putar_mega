@@ -1,0 +1,127 @@
+<?xml version="1.0" encoding="UTF-8"?><manifest xmlns:android="http://schemas.android.com/apk/res/android" android:versionCode="1000" android:versionName="1.0.3" android:installLocation="2" android:compileSdkVersion="33" android:compileSdkVersionCodename="13" package="com.putarmega.app" platformBuildVersionCode="33" platformBuildVersionName="13">
+  <uses-sdk android:minSdkVersion="21" android:targetSdkVersion="34"/>
+  <supports-screens android:anyDensity="true" android:smallScreens="true" android:normalScreens="true" android:largeScreens="true" android:xlargeScreens="true"/>
+  <uses-permission android:name="android.permission.INTERNET"/>
+  <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE"/>
+  <uses-permission android:name="com.google.android.finsky.permission.BIND_GET_INSTALL_REFERRER_SERVICE"/>
+  <uses-permission android:name="com.google.android.gms.permission.AD_ID"/>
+  <uses-permission android:name="android.permission.POST_NOTIFICATIONS"/>
+  <queries>
+    <package android:name="com.facebook.katana"/>
+    <intent>
+      <action android:name="com.appsflyer.referrer.INSTALL_PROVIDER"/>
+    </intent>
+    <package android:name="com.instagram.android"/>
+    <intent>
+      <action android:name="android.intent.action.SEND"/>
+      <data android:mimeType="*/*"/>
+    </intent>
+    <intent>
+      <action android:name="android.intent.action.SEND_MULTIPLE"/>
+      <data android:mimeType="*/*"/>
+    </intent>
+  </queries>
+  <queries>
+    <package android:name="com.instagram.android"/>
+  </queries>
+  <queries>
+    <package android:name="com.kaixin.googleplay"/>
+  </queries>
+  <uses-feature android:glEsVersion="0x20000"/>
+  <uses-feature android:name="android.hardware.vulkan.version" android:required="false"/>
+  <uses-permission android:name="android.permission.CAMERA"/>
+  <uses-feature android:name="android.hardware.camera" android:required="false"/>
+  <uses-feature android:name="android.hardware.camera.autofocus" android:required="false"/>
+  <uses-feature android:name="android.hardware.camera.front" android:required="false"/>
+  <uses-feature android:name="android.hardware.touchscreen" android:required="false"/>
+  <uses-feature android:name="android.hardware.touchscreen.multitouch" android:required="false"/>
+  <uses-feature android:name="android.hardware.touchscreen.multitouch.distinct" android:required="false"/>
+  <uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED"/>
+  <permission android:name="com.putarmega.app.DYNAMIC_RECEIVER_NOT_EXPORTED_PERMISSION" android:protectionLevel="0x2"/>
+  <uses-permission android:name="com.putarmega.app.DYNAMIC_RECEIVER_NOT_EXPORTED_PERMISSION"/>
+  <uses-permission android:name="android.permission.WAKE_LOCK"/>
+  <uses-permission android:name="com.google.android.c2dm.permission.RECEIVE"/>
+  <uses-permission android:name="android.permission.ACCESS_ADSERVICES_ATTRIBUTION"/>
+  <uses-permission android:name="android.permission.ACCESS_ADSERVICES_AD_ID"/>
+  <permission android:name="com.putarmega.app.permission.C2D_MESSAGE" android:protectionLevel="0x2"/>
+  <uses-permission android:name="com.putarmega.app.permission.C2D_MESSAGE"/>
+  <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE"/>
+  <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"/>
+  <uses-permission android:name="android.permission.READ_MEDIA_IMAGES"/>
+  <uses-permission android:name="android.permission.READ_MEDIA_VIDEO"/>
+  <uses-permission android:name="android.permission.READ_MEDIA_AUDIO"/>
+  <uses-permission android:name="android.permission.READ_PHONE_STATE"/>
+  <application android:theme="@style/UnityThemeSelector" android:label="PutarMega" android:icon="res/mipmap-xhdpi/app_icon.png" android:hardwareAccelerated="true" android:fullBackupContent="res/xml/appsflyer_backup_rules.xml" android:usesCleartextTraffic="true" android:appComponentFactory="androidx.core.app.CoreComponentFactory" android:requestLegacyExternalStorage="true">
+    <receiver android:name="com.adjust.sdk.AdjustReferrerReceiver" android:permission="android.permission.INSTALL_PACKAGES" android:exported="true">
+      <intent-filter>
+        <action android:name="com.android.vending.INSTALL_REFERRER"/>
+      </intent-filter>
+    </receiver>
+    <activity android:name="com.google.firebase.MessagingUnityPlayerActivity" android:exported="true" android:launchMode="2" android:screenOrientation="1" android:configChanges="0x40003fff" android:hardwareAccelerated="true" android:resizeableActivity="false">
+      <intent-filter>
+        <action android:name="android.intent.action.MAIN"/>
+        <category android:name="android.intent.category.LAUNCHER"/>
+      </intent-filter>
+      <meta-data android:name="unityplayer.UnityActivity" android:value="true"/>
+      <meta-data android:name="android.notch_support" android:value="true"/>
+    </activity>
+    <meta-data android:name="unity.splash-mode" android:value="0"/>
+    <meta-data android:name="unity.splash-enable" android:value="true"/>
+    <meta-data android:name="unity.launch-fullscreen" android:value="true"/>
+    <meta-data android:name="unity.allow-resizable-window" android:value="false"/>
+    <meta-data android:name="notch.config" android:value="portrait|landscape"/>
+    <meta-data android:name="unity.build-id" android:value="83020b97-c038-473c-9184-db5e0a9241fa"/>
+    <activity android:theme="@style/Theme.Translucent.NoTitleBar" android:name="com.vuplex.webview.HelperActivity"/>
+    <service android:name="com.google.firebase.messaging.MessageForwardingService" android:permission="android.permission.BIND_JOB_SERVICE" android:exported="true"/>
+    <service android:name="com.google.firebase.FcmMessagingService" android:permission="android.permission.BIND_JOB_SERVICE" android:exported="true">
+      <intent-filter>
+        <action android:name="com.google.firebase.MESSAGING_EVENT"/>
+      </intent-filter>
+    </service>
+    <uses-library android:name="android.ext.adservices" android:required="false"/>
+    <service android:name="com.google.android.datatransport.runtime.backends.TransportBackendDiscovery" android:exported="false">
+      <meta-data android:name="backend:com.google.android.datatransport.cct.CctBackendFactory" android:value="cct"/>
+    </service>
+    <service android:name="com.google.android.datatransport.runtime.scheduling.jobscheduling.JobInfoSchedulerService" android:permission="android.permission.BIND_JOB_SERVICE" android:exported="false"/>
+    <receiver android:name="com.google.android.datatransport.runtime.scheduling.jobscheduling.AlarmManagerSchedulerBroadcastReceiver" android:exported="false"/>
+    <activity android:theme="@style/Theme.Translucent.NoTitleBar" android:name="com.google.android.gms.common.api.GoogleApiActivity" android:exported="false"/>
+    <meta-data android:name="com.google.android.gms.version" android:value="12451000"/>
+    <receiver android:name="com.google.android.gms.measurement.AppMeasurementReceiver" android:enabled="true" android:exported="false"/>
+    <service android:name="com.google.android.gms.measurement.AppMeasurementService" android:enabled="true" android:exported="false"/>
+    <service android:name="com.google.android.gms.measurement.AppMeasurementJobService" android:permission="android.permission.BIND_JOB_SERVICE" android:enabled="true" android:exported="false"/>
+    <property android:name="android.adservices.AD_SERVICES_CONFIG" android:resource="@xml/ga_ad_services_config"/>
+    <service android:name="com.google.firebase.components.ComponentDiscoveryService" android:exported="false" android:directBootAware="true">
+      <meta-data android:name="com.google.firebase.components:com.google.firebase.analytics.connector.internal.AnalyticsConnectorRegistrar" android:value="com.google.firebase.components.ComponentRegistrar"/>
+      <meta-data android:name="com.google.firebase.components:com.google.firebase.FirebaseCommonKtxRegistrar" android:value="com.google.firebase.components.ComponentRegistrar"/>
+      <meta-data android:name="com.google.firebase.components:com.google.firebase.ktx.FirebaseCommonLegacyRegistrar" android:value="com.google.firebase.components.ComponentRegistrar"/>
+      <meta-data android:name="com.google.firebase.components:com.google.firebase.datatransport.TransportRegistrar" android:value="com.google.firebase.components.ComponentRegistrar"/>
+      <meta-data android:name="com.google.firebase.components:com.google.firebase.iid.Registrar" android:value="com.google.firebase.components.ComponentRegistrar"/>
+      <meta-data android:name="com.google.firebase.components:com.google.firebase.installations.FirebaseInstallationsKtxRegistrar" android:value="com.google.firebase.components.ComponentRegistrar"/>
+      <meta-data android:name="com.google.firebase.components:com.google.firebase.installations.FirebaseInstallationsRegistrar" android:value="com.google.firebase.components.ComponentRegistrar"/>
+      <meta-data android:name="com.google.firebase.components:com.google.firebase.messaging.FirebaseMessagingKtxRegistrar" android:value="com.google.firebase.components.ComponentRegistrar"/>
+      <meta-data android:name="com.google.firebase.components:com.google.firebase.messaging.FirebaseMessagingRegistrar" android:value="com.google.firebase.components.ComponentRegistrar"/>
+    </service>
+    <provider android:name="com.google.firebase.provider.FirebaseInitProvider" android:exported="false" android:authorities="com.putarmega.app.firebaseinitprovider" android:initOrder="100" android:directBootAware="true"/>
+    <receiver android:name="com.google.firebase.iid.FirebaseInstanceIdReceiver" android:permission="com.google.android.c2dm.permission.SEND" android:exported="true">
+      <intent-filter>
+        <action android:name="com.google.android.c2dm.intent.RECEIVE"/>
+      </intent-filter>
+      <meta-data android:name="com.google.android.gms.cloudmessaging.FINISHED_AFTER_HANDLED" android:value="true"/>
+    </receiver>
+    <service android:name="com.google.firebase.messaging.FirebaseMessagingService" android:exported="false" android:directBootAware="true">
+      <intent-filter android:priority="-500">
+        <action android:name="com.google.firebase.MESSAGING_EVENT"/>
+      </intent-filter>
+    </service>
+    <service android:name="com.google.firebase.messaging.cpp.ListenerService" android:exported="false">
+      <intent-filter>
+        <action android:name="com.google.firebase.MESSAGING_EVENT"/>
+      </intent-filter>
+    </service>
+    <service android:name="com.google.firebase.messaging.cpp.RegistrationIntentService" android:exported="false"/>
+    <service android:name="com.google.android.gms.messaging.cpp.MessageForwardingService" android:permission="android.permission.BIND_JOB_SERVICE" android:exported="true"/>
+    <activity android:theme="@style/Theme.NativeShareTransparent" android:name="com.yasirkula.unity.NativeShareCustomShareDialogActivity" android:exported="false"/>
+    <receiver android:name="com.yasirkula.unity.NativeShareBroadcastListener" android:exported="false"/>
+    <provider android:name="com.yasirkula.unity.NativeShareContentProvider" android:exported="false" android:authorities="com.putarmega.app.NativeShareContentProvider" android:grantUriPermissions="true"/>
+  </application>
+</manifest>
